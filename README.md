@@ -5,8 +5,7 @@ This project provides a basic setup for a task management app called TaskPlanner
 ## Features
 
 - Create, edit, and delete tasks
-- Drag and drop tasks to reorder them
-- Mark tasks as completed
+- Drag and drop tasks to change status
 - Store tasks locally within the browser
 
 ## Technologies
