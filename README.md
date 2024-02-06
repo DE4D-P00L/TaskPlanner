@@ -24,7 +24,7 @@ This project provides a basic setup for a task management app called TaskPlanner
 1. Clone the repository:
 
    ```bash
-   git clone [https://github.com/DE4D-P00L/TaskPlanner.git](https://github.com/DE4D-P00L/TaskPlanner.git)
+   git clone https://github.com/DE4D-P00L/TaskPlanner.git
 
    ```
 
