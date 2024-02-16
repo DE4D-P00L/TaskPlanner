@@ -48,10 +48,10 @@ function Section({ status, tasks, setTasks, todos, inProgress, done }) {
     <div
       ref={drop}
       className={`w-64 rounded-md p-2 ${
-        isOver ? "bg-blue-200" : "bg-slate-200"
-      }`}>
+        isOver ? "bg-primary" : "bg-neutral"
+      } border border-primary-content`}>
       <Header text={text} bg={bg} count={tasksToMap?.length} />
-      <div className="pt-2 overflow-y-auto max-h-[calc(100vh-170px)] no-scrollbar flex flex-col gap-2">
+      <div className="pt-2 overflow-y-auto max-h-[calc(100vh-170px)] no-scrollbar flex flex-col gap-2 min-h-[50px]">
         {tasksToMap.length > 0 &&
           tasksToMap.map((task) => (
             <Task key={task.id} task={task} tasks={tasks} setTasks={setTasks} />

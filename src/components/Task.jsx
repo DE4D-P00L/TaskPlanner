@@ -20,12 +20,12 @@ function Task({ task, tasks, setTasks }) {
   return (
     <div
       ref={drag}
-      className={`relative p-4 bg-slate-100 shadow-md rounded-md ${
+      className={`relative p-4 bg-accent shadow-md rounded-md ${
         isDragging ? "opacity-25" : "opacity-100"
       }`}>
-      <p className="select-none text-md">{task.content}</p>
+      <p className="select-none text-md text-primary-content">{task.content}</p>
       <button
-        className="absolute top-4 right-1 text-slate-500"
+        className="absolute top-4 right-1 text-primary-content"
         onClick={() => handleRemove(task.id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

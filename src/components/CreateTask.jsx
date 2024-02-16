@@ -34,11 +34,11 @@ const CreateTask = ({ tasks, setTasks }) => {
           setTask({ ...task, id: uuidv4(), content: e.target.value })
         }
         value={task.content}
-        className="border-2 border-slate-400 bg-slate-100 rounded-md mr-4 h-12 w-64 px-2"
+        className="border-2 border-slate-400 bg-base-200 rounded-md mr-4 h-12 w-64 px-2"
       />
       <button
         type="submit"
-        className="bg-cyan-500 rounded-md px-4 h-12 text-white">
+        className="bg-secondary rounded-md px-4 h-12 text-white select-none">
         +
       </button>
     </form>
