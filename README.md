@@ -15,7 +15,7 @@ This project provides a basic setup for a task management app called TaskPlanner
 - react-dnd - Enables drag-and-drop functionality
 - react-hot-toast - Provides user feedback through toast notifications
 - uuid - Generates unique identifiers for tasks
-- tailwindcss - Utility-first CSS framework for rapid styling
+- Tailwind CSS & DaisyUI: Utility-first and component-based UI frameworks for consistent styling.
 - Localstorage - Persists task data in the browser
 
 ## Installation
