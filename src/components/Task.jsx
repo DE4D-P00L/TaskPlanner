@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useDrag } from "react-dnd";
 import toast from "react-hot-toast";
 
@@ -12,7 +13,6 @@ function Task({ task, tasks, setTasks }) {
 
   const handleRemove = (id) => {
     const fTasks = tasks.filter((task) => task.id !== id);
-    localStorage.setItem("tasks", JSON.stringify(fTasks));
     setTasks(fTasks);
     toast.success("Task removed");
   };

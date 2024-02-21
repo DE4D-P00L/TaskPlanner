@@ -16,3 +16,8 @@
 body {
   background-color: rgb(241 245 249);
 }
+
+dialog::backdrop {
+  background-color: hsla(249, 66%, 6%, 0.532);
+  backdrop-filter: blur(2px);
+}

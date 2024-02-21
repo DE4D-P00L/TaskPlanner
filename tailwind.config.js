@@ -13,6 +13,7 @@ export default {
           accent: "#bababa",
           secondary: "#566abb",
           "primary-content": "#000",
+          "task-card": "#ec973b",
         },
       },
       {
@@ -21,6 +22,7 @@ export default {
           accent: "#41425d",
           secondary: "#566abb",
           "primary-content": "#fff",
+          "task-card": "#652fa5",
         },
       },
     ],

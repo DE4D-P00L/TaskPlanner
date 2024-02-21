@@ -1,13 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../features/darkModeSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { clearUser } from "../features/authSlice.js";
+import CreateProjectDialog from "./CreateProjectDialog.jsx";
 
 const NavBar = () => {
   const darkmode = useSelector((state) => state.theme.darkMode);
   const [menuOpen, setMenuOpen] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const ref = useRef(null);
+  const toggleDialog = () => {
+    console.log(ref.current);
+    if (!ref.current) return;
+    if (ref.current.hasAttribute("open")) {
+      ref.current.close();
+    } else {
+      ref.current.showModal();
+    }
+  };
+
   return (
     <nav
       className="sticky w-full z-[99] h-[70px] px-3 top-0"
@@ -22,11 +36,18 @@ const NavBar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/create-project">New Board</Link>
+            <button onClick={toggleDialog}>New Board</button>
           </li>
           {/* TODO: Add conditional render for Login/Logout buttons */}
           <li className="bg-primary-content text-accent cursor-pointer">
-            <button className="px-2.5 py-1 font-semibold">Logout</button>
+            <button
+              className="px-2.5 py-1 font-semibold"
+              onClick={() => {
+                dispatch(clearUser());
+                navigate("/login", { replace: true });
+              }}>
+              Logout
+            </button>
           </li>
           <div
             className="cursor-pointer"
@@ -53,19 +74,29 @@ const NavBar = () => {
 
         {menuOpen && (
           <ul className="flex gap-7 sm:hidden flex-col absolute top-[70px] right-0 items-end bg-base-200 w-full py-10 px-5 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
-            <li>
+            <li onClick={() => setMenuOpen(false)}>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/create-project">New Board</Link>
+            <li onClick={() => setMenuOpen(false)}>
+              <button onClick={toggleDialog}>New Board</button>
             </li>
             {/* TODO: Add conditional render for Login/Logout buttons */}
             <li className="bg-primary-content text-accent cursor-pointer">
-              <button className="px-2.5 py-1 font-semibold">Logout</button>
+              <button
+                className="px-2.5 py-1 font-semibold"
+                onClick={() => {
+                  dispatch(clearUser());
+                  navigate("/login");
+                }}>
+                Logout
+              </button>
             </li>
             <div
               className="cursor-pointer"
-              onClick={() => dispatch(toggleDarkMode())}>
+              onClick={() => {
+                dispatch(toggleDarkMode());
+                setMenuOpen(false);
+              }}>
               {darkmode ? (
                 <svg
                   className="fill-current w-8 h-8"
@@ -90,6 +121,7 @@ const NavBar = () => {
           <GiHamburgerMenu className="text-2xl" />
         </button>
       </div>
+      <CreateProjectDialog toggleDialog={toggleDialog} ref={ref} />
     </nav>
   );
 };

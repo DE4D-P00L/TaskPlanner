@@ -7,9 +7,9 @@ const ListTasks = ({ tasks, setTasks }) => {
   const [done, setDone] = useState([]);
 
   useEffect(() => {
-    const fTodos = tasks.filter((task) => task.status === "todo");
-    const fInProgress = tasks.filter((task) => task.status === "inprogress");
-    const fDone = tasks.filter((task) => task.status === "done");
+    const fTodos = tasks?.filter((task) => task.status === "todo");
+    const fInProgress = tasks?.filter((task) => task.status === "inprogress");
+    const fDone = tasks?.filter((task) => task.status === "done");
 
     setTodos(fTodos);
     setInProgress(fInProgress);
@@ -24,9 +24,9 @@ const ListTasks = ({ tasks, setTasks }) => {
         <Section
           key={index}
           status={status}
+          todos={todos}
           tasks={tasks}
           setTasks={setTasks}
-          todos={todos}
           inProgress={inProgress}
           done={done}
         />

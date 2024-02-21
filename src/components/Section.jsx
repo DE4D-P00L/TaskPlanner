@@ -4,7 +4,7 @@ import Header from "./Header";
 import Task from "./Task";
 import toast from "react-hot-toast";
 
-function Section({ status, tasks, setTasks, todos, inProgress, done }) {
+function Section({ status, todos, inProgress, done, tasks, setTasks }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
     drop: (item) => addItemToSection(item.id, item.status),
