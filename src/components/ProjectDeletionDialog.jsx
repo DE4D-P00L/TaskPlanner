@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { forwardRef } from "react";
 import { IoClose } from "react-icons/io5";
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { forwardRef } from "react";
 import { useForm } from "react-hook-form";
 import { IoClose } from "react-icons/io5";
@@ -15,10 +16,9 @@ const CreateProjectDialog = forwardRef(({ toggleDialog }, ref) => {
   } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, createProject } = useCreateProject();
+  const { createProject } = useCreateProject();
 
   const onSubmit = async (data) => {
-    console.log(data);
     const pid = await createProject(data);
     console.log(pid);
     resetField("projectName");
@@ -39,7 +39,7 @@ const CreateProjectDialog = forwardRef(({ toggleDialog }, ref) => {
         }}>
         <div className="space-y-5">
           <div className="flex justify-between">
-            <h3 className="text-xl">Create a new board</h3>
+            <h3 className="text-xl">Create a new project</h3>
             <button onClick={toggleDialog}>
               <IoClose />
             </button>

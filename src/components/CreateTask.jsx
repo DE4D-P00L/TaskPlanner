@@ -11,7 +11,7 @@ const CreateTask = ({ tasks, setTasks, projectId }) => {
     content: "",
     status: "todo",
   });
-  const { loading, saveTasks } = useSaveTasks();
+  const { saveTasks } = useSaveTasks();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task.content.length < 3)
@@ -27,7 +27,6 @@ const CreateTask = ({ tasks, setTasks, projectId }) => {
   };
 
   const saveHandler = async () => {
-    console.log(tasks);
     await saveTasks(projectId, tasks);
   };
 

@@ -14,7 +14,6 @@ const Home = () => {
 
   useEffect(() => {
     if (!user) navigate("/login", { replace: true });
-    // TODO: Add await
     dispatch(clearProject());
     fetchProjects();
   }, []);
@@ -40,7 +39,12 @@ const Home = () => {
           </div>
         </div>
       )}
-      {projects?.length === 0 && (
+      {loading && (
+        <div className=" mx-auto max-w-6xl grid place-content-center">
+          <div className="text-center">LOADING...</div>
+        </div>
+      )}
+      {!loading && projects?.length === 0 && (
         <div className=" mx-auto max-w-6xl grid place-content-center">
           <div className="text-center">
             Welcome, {user?.username + " "}click &quot;New Board&quot; to start

@@ -17,6 +17,7 @@ const useSaveTasks = () => {
       toast.success("Project Saved");
     } catch (error) {
       console.log(error);
+      toast.success("ERROR! Please try again");
     } finally {
       setLoading(false);
     }

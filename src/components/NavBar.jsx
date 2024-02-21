@@ -9,11 +9,11 @@ import CreateProjectDialog from "./CreateProjectDialog.jsx";
 const NavBar = () => {
   const darkmode = useSelector((state) => state.theme.darkMode);
   const [menuOpen, setMenuOpen] = useState(false);
+  const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ref = useRef(null);
   const toggleDialog = () => {
-    console.log(ref.current);
     if (!ref.current) return;
     if (ref.current.hasAttribute("open")) {
       ref.current.close();
@@ -27,28 +27,35 @@ const NavBar = () => {
       className="sticky w-full z-[99] h-[70px] px-3 top-0"
       data-theme={`${darkmode ? "dark" : "light"}`}>
       <div className="flex h-full items-center max-w-7xl mx-auto justify-between text-primary-content">
-        <h2 className="">TaskPlanner</h2>
+        <Link to="/" className="">
+          TaskPlanner
+        </Link>
 
         {/* Desktop Menu */}
 
         <ul className="hidden gap-7 items-center sm:flex">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <button onClick={toggleDialog}>New Board</button>
-          </li>
-          {/* TODO: Add conditional render for Login/Logout buttons */}
-          <li className="bg-primary-content text-accent cursor-pointer">
-            <button
-              className="px-2.5 py-1 font-semibold"
-              onClick={() => {
-                dispatch(clearUser());
-                navigate("/login", { replace: true });
-              }}>
-              Logout
-            </button>
-          </li>
+          {user && (
+            <li>
+              <Link to="/">Projects</Link>
+            </li>
+          )}
+          {user && (
+            <li>
+              <button onClick={toggleDialog}>New Project</button>
+            </li>
+          )}
+          {user && (
+            <li className="bg-primary-content text-accent cursor-pointer">
+              <button
+                className="px-2.5 py-1 font-semibold select-none"
+                onClick={() => {
+                  dispatch(clearUser());
+                  navigate("/login", { replace: true });
+                }}>
+                Logout
+              </button>
+            </li>
+          )}
           <div
             className="cursor-pointer"
             onClick={() => dispatch(toggleDarkMode())}>
@@ -74,23 +81,28 @@ const NavBar = () => {
 
         {menuOpen && (
           <ul className="flex gap-7 sm:hidden flex-col absolute top-[70px] right-0 items-end bg-base-200 w-full py-10 px-5 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
-            <li onClick={() => setMenuOpen(false)}>
-              <Link to="/">Home</Link>
-            </li>
-            <li onClick={() => setMenuOpen(false)}>
-              <button onClick={toggleDialog}>New Board</button>
-            </li>
-            {/* TODO: Add conditional render for Login/Logout buttons */}
-            <li className="bg-primary-content text-accent cursor-pointer">
-              <button
-                className="px-2.5 py-1 font-semibold"
-                onClick={() => {
-                  dispatch(clearUser());
-                  navigate("/login");
-                }}>
-                Logout
-              </button>
-            </li>
+            {user && (
+              <li onClick={() => setMenuOpen(false)}>
+                <Link to="/">Home</Link>
+              </li>
+            )}
+            {user && (
+              <li onClick={() => setMenuOpen(false)}>
+                <button onClick={toggleDialog}>New Project</button>
+              </li>
+            )}
+            {user && (
+              <li className="bg-primary-content text-accent cursor-pointer">
+                <button
+                  className="px-2.5 py-1 font-semibold select-none"
+                  onClick={() => {
+                    dispatch(clearUser());
+                    navigate("/login", { replace: true });
+                  }}>
+                  Logout
+                </button>
+              </li>
+            )}
             <div
               className="cursor-pointer"
               onClick={() => {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 import convertTimeString from "../utils/timeToString";
 import { FaSave, FaTrashAlt } from "react-icons/fa";
@@ -9,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { setProjectName } from "../features/projectSlice.js";
 
 const ProjectItem = ({ project, refreshPage }) => {
-  const { projectName, _id, taskList, updatedAt } = project;
+  const { projectName, _id, updatedAt } = project;
   const dt = convertTimeString(updatedAt).split("at");
   const navigate = useNavigate();
   const randomColor = randomRGBColor();

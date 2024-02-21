@@ -15,10 +15,10 @@ const useCreateProject = () => {
       );
       if (!response.data.success) return toast.error(response.data.message);
       toast.success("Project Created Successfully");
-      //   return
       return response.data?.project?._id;
     } catch (error) {
       console.log(error);
+      toast.error("Please try again");
     } finally {
       setLoading(false);
     }
