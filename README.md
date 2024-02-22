@@ -14,8 +14,7 @@ Effortlessly manage projects and daily tasks with this drag-and-drop Kanban boar
 
 - **Multiple Kanban boards:** Organize projects and tasks into dedicated boards.
 - **Intuitive drag-and-drop:** Effortlessly prioritize and manage workflow by dragging and dropping tasks between columns.
-- **Task management:** Add, edit, and delete tasks within each column.
-- **Task details and comments:** Gain deeper insights into tasks with detailed views and comments.
+- **Task management:** Add, Move and delete tasks within each column.
 - **Modern and responsive UI:** Enjoy a sleek and user-friendly interface built with Tailwind CSS and DaisyUI.
 - **Secure user authentication:** Protect your data with secure BcryptJS password hashing and JWT-based authentication.
 
