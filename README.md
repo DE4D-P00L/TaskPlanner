@@ -1,22 +1,23 @@
-# TaskPlanner: A Vite-React Task Management App
+# TaskPlanner: A Task Management App
 
-This project provides a basic setup for a task management app called TaskPlanner, built with Vite, React, and various essential libraries:
+**Description:**
 
-## Features
+Effortlessly manage projects and daily tasks with this drag-and-drop Kanban board powered by ReactJS, NodeJS, and MongoDB. Enjoy intuitive features and a modern, responsive interface built with cutting-edge technologies.
 
-- Create, edit, and delete tasks
-- Drag and drop tasks to change status
-- Store tasks locally within the browser
+**Technologies:**
 
-## Technologies
+- Front-end: ReactJS, Vite, React-router-dom, React-icons, React-hook-form, TailwindCSS, DaisyUI, React-DND, React-Hot-Toast
+- Back-end: NodeJS, ExpressJS, MongoDB, BcryptJS, JWT
+- Networking: Axios
 
-- React - Core UI framework
-- Vite - Build tool for fast development experience
-- react-dnd - Enables drag-and-drop functionality
-- react-hot-toast - Provides user feedback through toast notifications
-- uuid - Generates unique identifiers for tasks
-- Tailwind CSS & DaisyUI: Utility-first and component-based UI frameworks for consistent styling.
-- Localstorage - Persists task data in the browser
+**Features:**
+
+- **Multiple Kanban boards:** Organize projects and tasks into dedicated boards.
+- **Intuitive drag-and-drop:** Effortlessly prioritize and manage workflow by dragging and dropping tasks between columns.
+- **Task management:** Add, edit, and delete tasks within each column.
+- **Task details and comments:** Gain deeper insights into tasks with detailed views and comments.
+- **Modern and responsive UI:** Enjoy a sleek and user-friendly interface built with Tailwind CSS and DaisyUI.
+- **Secure user authentication:** Protect your data with secure BcryptJS password hashing and JWT-based authentication.
 
 ## Installation
 
@@ -24,22 +25,32 @@ This project provides a basic setup for a task management app called TaskPlanner
 
    ```bash
    git clone https://github.com/DE4D-P00L/TaskPlanner.git
-
    ```
 
-2. Install dependencies:
+2. Clone the [Backend Code](https://github.com/DE4D-P00L/TaskPlanner-Backend)
+3. Install dependencies for both Frontend and Backend:
    ```bash
-   cd TaskPlanner
+   cd frontend
+   npm install
+   ```
+   ```bash
+   cd backend
    npm install
    ```
 
 ## Development
 
-1. Start the development server:
+1. Start the frontend app:
+
    ```bash
    npm run dev
    ```
-2. Access the app in your browser at http://localhost:5173/
+
+2. Start the Server
+   ```bash
+   npm run dev
+   ```
+3. Access the app in your browser at http://localhost:5173/
 
 ## License
 
