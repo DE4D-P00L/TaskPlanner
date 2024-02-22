@@ -80,7 +80,7 @@ const Login = () => {
             placeholder="Password"
           />
           {errors.password?.message && (
-            <p className="error-message">{errors.password.message}</p>
+            <p className="text-red-500">{errors.password.message}</p>
           )}
         </div>
         <button
