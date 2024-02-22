@@ -45,7 +45,7 @@ const NavBar = () => {
             </li>
           )}
           {user && (
-            <li className="bg-primary-content text-accent cursor-pointer">
+            <li className="bg-primary-content text-accent cursor-pointer rounded-md">
               <button
                 className="px-2.5 py-1 font-semibold select-none"
                 onClick={() => {
@@ -92,7 +92,7 @@ const NavBar = () => {
               </li>
             )}
             {user && (
-              <li className="bg-primary-content text-accent cursor-pointer">
+              <li className="bg-primary-content text-accent cursor-pointer rounded-md">
                 <button
                   className="px-2.5 py-1 font-semibold select-none"
                   onClick={() => {

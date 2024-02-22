@@ -32,7 +32,6 @@ const ProjectItem = ({ project, refreshPage }) => {
   };
 
   const deleteHandler = async () => {
-    console.log(_id);
     const response = await axios.delete(
       import.meta.env.VITE_SERVER_URL + `/api/v1/project/${_id}`,
       { headers: { Authorization: localStorage.getItem("token") } }

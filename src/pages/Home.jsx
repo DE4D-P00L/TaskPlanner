@@ -47,8 +47,8 @@ const Home = () => {
       {!loading && projects?.length === 0 && (
         <div className=" mx-auto max-w-6xl grid place-content-center">
           <div className="text-center">
-            Welcome, {user?.username + " "}click &quot;New Board&quot; to start
-            a new Project
+            Welcome, {user?.username + " "}click &quot;New Project&quot; to
+            start a new Project
           </div>
         </div>
       )}
