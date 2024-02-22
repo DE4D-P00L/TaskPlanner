@@ -52,11 +52,17 @@ const Login = () => {
           <input
             type="username"
             className="bg-base-200 border border-gray-500 text-content sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-            {...register("username", { required: "Username Required" })}
+            {...register("username", {
+              required: "Username Required",
+              minLength: {
+                value: 3,
+                message: "Username must be at least 3 characters",
+              },
+            })}
             placeholder="JohnDoe"
           />
           {errors.username?.message && (
-            <p className="error-message">{errors.username?.message}</p>
+            <p className="text-red-500">{errors.username?.message}</p>
           )}
         </div>
         <div className="space-y-2">
@@ -66,7 +72,10 @@ const Login = () => {
             className="bg-base-200 border border-gray-500 text-content sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
             {...register("password", {
               required: "Password Required",
-              minLength: 6,
+              minLength: {
+                value: 6,
+                message: "Password must be atleast 6 characters long",
+              },
             })}
             placeholder="Password"
           />
