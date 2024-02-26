@@ -8,8 +8,9 @@ import { useRef } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setProjectName } from "../features/projectSlice.js";
+import { motion } from "framer-motion";
 
-const ProjectItem = ({ project, refreshPage }) => {
+const ProjectItem = ({ project, refreshPage, animVariants }) => {
   const { projectName, _id, updatedAt } = project;
   const dt = convertTimeString(updatedAt).split("at");
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const ProjectItem = ({ project, refreshPage }) => {
   };
 
   return (
-    <div className="relative">
+    <motion.div variants={animVariants} className="relative">
       <div
         className={`border border-primary-content rounded-md p-4 flex flex-col justify-between select-none cursor-pointer h-[140px] ${tailwindColor} text-black  w-[190px]`}
         onClick={projectSelectHandler}>
@@ -76,7 +77,7 @@ const ProjectItem = ({ project, refreshPage }) => {
         <span className="font-bold">{projectName}</span>? This action cannot be
         reversed.
       </ProjectDeletionDialog>
-    </div>
+    </motion.div>
   );
 };
 export default ProjectItem;
